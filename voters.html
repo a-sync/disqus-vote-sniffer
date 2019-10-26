@@ -1,100 +1,102 @@
 <html>
+
 <head>
-<style>
-body {
+    <style>
+        body {}
 
-}
+        #header {
+            margin-bottom: 20px;
+        }
 
-#header {
-  margin-bottom: 20px;
-}
+        #title {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-#title {
-  font-size: 24px;
-  font-weight: bold;
-}
+        #zeroup {
+            color: darkgreen;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+        }
 
-#zeroup {
-  color: darkgreen;
-  cursor: pointer;
-  margin: 0 10px 0 10px;
-}
+        #zerodown {
+            color: darkred;
+            cursor: pointer;
+        }
 
-#zerodown {
-  color: darkred;
-  cursor: pointer;
-}
+        #zeroup:hover,
+        #zeroup.active,
+        #zerodown:hover,
+        #zerodown.active {
+            text-decoration: line-through;
+        }
 
-#zeroup:hover, #zeroup.active, #zerodown:hover, #zerodown.active {
-  text-decoration: line-through;
-}
+        #zeroup.active:hover,
+        #zerodown.active:hover {
+            text-decoration: none;
+        }
 
-#zeroup.active:hover, #zerodown.active:hover {
-  text-decoration: none;
-}
+        #container {}
 
-#container {
+        #container.hidezeroupvotes .user[data-upvotes="0"] {
+            display: none;
+        }
 
-}
+        #container.hidezerodownvotes .user[data-downvotes="0"] {
+            display: none;
+        }
 
-#container.hidezeroupvotes .user[data-upvotes="0"] {
-  display: none;
-}
+        .user {
+            margin-bottom: 10px;
+        }
 
-#container.hidezerodownvotes .user[data-downvotes="0"] {
-  display: none;
-}
+        .user img {
+            width: 42px;
+            height: 42px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 5px;
+            float: left;
+        }
 
-.user {
-  margin-bottom: 10px;
-}
+        .user a {
+            color: #288ce4;
+            font-family: "Helvetica Neue", arial, sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-right: 5px;
+        }
 
-.user img {
-  width: 42px;
-  height: 42px;
-  border-radius: 3px;
-  vertical-align: middle;
-  margin-right: 5px;
-  float: left;
-}
+        .user .upvotes {
+            color: darkgreen;
+        }
 
-.user a {
-  color: #288ce4;
-  font-family: "Helvetica Neue", arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  margin-right: 5px;
-}
+        .user .downvotes {
+            color: darkred;
+        }
 
-.user .upvotes {
-  color: darkgreen;
-}
+        .user .upvotes,
+        .user .downvotes {
+            font-weight: bold;
+            margin-right: 5px;
+            font-size: 18;
+        }
 
-.user .downvotes {
-  color: darkred;
-}
+        .user br:last-child {
+            clear: both;
+        }
+    </style>
 
-.user .upvotes, .user .downvotes {
-  font-weight: bold;
-  margin-right: 5px;
-  font-size: 18;
-}
-
-.user br:last-child {
-  clear: both;
-}
-
-</style>
-
-<script src="headers.js"></script>
+    <script src="headers.js"></script>
 </head>
 
 <body>
-<div id="header">
-<span id="title"></span>
-<span id="zeroup">0 up</span><span id="zerodown">0 down</span>
-</div>
-<div id="container"></div>
+    <div id="header">
+        <span id="title"></span>
+        <span id="zeroup">0 up</span><span id="zerodown">0 down</span>
+    </div>
+    <div id="container"></div>
 </body>
+
 </html>

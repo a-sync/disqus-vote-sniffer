@@ -1,18 +1,22 @@
 {
-  "name": "Disqus Vote Sniffer",
-  "description": "Count the votes of disqus users",
-  "version": "1.0",
-  "permissions": [
-    "debugger",
-    "tabs"
-  ],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_title": "Disqus Vote Sniffer"
-  },
-  "manifest_version": 2
+    "name": "Disqus Vote Sniffer",
+    "description": "Count the votes of disqus users",
+    "version": "1.0",
+    "permissions": [
+        "debugger",
+        "tabs",
+        "https://disqus.com/home/discussion/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "Disqus Vote Sniffer"
+    },
+    "minimum_chrome_version": "64",
+    "manifest_version": 2
 }
