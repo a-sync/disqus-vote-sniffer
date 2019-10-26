@@ -42,20 +42,27 @@ function addVote(voter, vote) {
     const userBox = document.getElementById(voter.username);
 
     if (userBox) {
-        if (vote.vote === 1) {
+        if (Number(vote.vote) === 1) {
             userBox.dataset.upvotes = Number(userBox.dataset.upvotes) + 1;
-            userBox.querySelector('.upvotes').textContent = String(userBox.dataset.upvotes);
-        } else {
+        } else if (Number(vote.vote) === -1) {
             userBox.dataset.downvotes = Number(userBox.dataset.downvotes) + 1;
-            userBox.querySelector('.downvotes').textContent = String(userBox.dataset.downvotes);
         }
+
+        if (Number(vote.vote_prev) === 1 && Number(userBox.dataset.upvotes) > 0) {
+            userBox.dataset.upvotes = Number(userBox.dataset.upvotes) - 1;
+        } else if (Number(vote.vote_prev) === -1 && Number(userBox.dataset.downvotes) > 0) {
+            userBox.dataset.downvotes = Number(userBox.dataset.downvotes) - 1;
+        }
+
+        userBox.querySelector('.upvotes').textContent = String(userBox.dataset.upvotes);
+        userBox.querySelector('.downvotes').textContent = String(userBox.dataset.downvotes);
     } else {
         const user = document.createElement('div');
         user.id = voter.username;
         user.className = 'user';
 
-        user.dataset.upvotes = vote.vote === 1 ? 1 : 0;
-        user.dataset.downvotes = vote.vote === -1 ? 1 : 0;
+        user.dataset.upvotes = Number(vote.vote) === 1 ? 1 : 0;
+        user.dataset.downvotes = Number(vote.vote) === -1 ? 1 : 0;
 
         const avatar = document.createElement('img');
         avatar.src = voter.avatar.cache.indexOf('//') === 0 ? voter.avatar.permalink : voter.avatar.cache;
